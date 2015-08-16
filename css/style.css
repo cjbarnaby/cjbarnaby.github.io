@@ -440,6 +440,12 @@ a:hover {
   cursor:pointer;
 }
 
+.lineSpan {
+  display:inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
 @-webkit-keyframes pulse {
   from {
     -webkit-transform: scale3d(1, 1, 1);
