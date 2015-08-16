@@ -51,11 +51,12 @@ body {
   justify-content:center;
   align-items:center;
   max-width: 70%;
-  max-height: 70%;
+  max-height: 50%;
   margin: 0 auto;
 }
 
 .projectBottom {
+  max-height:40%;
 }
 
 .skillsGroup {
