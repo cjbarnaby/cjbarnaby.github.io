@@ -1,4 +1,25 @@
 
+/*
+  1.  Global styles - general 
+  2.  Global styles - navigation
+  3.  Global styles - text and headers
+  4.  Global styles - images
+  5.  Slides - general
+  6.  Home
+  7.  About
+  8.  Skills
+  9.  Projects
+  10. Connect
+  11. Goodbye
+  12. Animmations (chevron pulse)
+  13. Helper styles (skrollr helper)
+*/
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+  /* 1. GLOBAL STYLES - GENERAL */
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
 *,*:before,*:after {
   -moz-box-sizing:border-box;
   -webkit-box-sizing:border-box;
@@ -10,89 +31,14 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-.myName {
-  font-weight: 700;
-  font-style: italic;
-  text-align: center;
-  letter-spacing: 3px;
+html, body {
+  width: 100%;
+  height: 100%;
 }
 
-.myTitle {
-  font-weight: 300;
-  font-style: italic;
-  text-align: center;
-  letter-spacing: 3px;
-}
-
-.slideHeader {
-  font-weight: 700;
-  font-style: italic;
-  text-align: center;
-  letter-spacing: 3px;
-}
-
-.bodyText {
-  font-weight: 300;
-  max-width:70%;
-  text-align: center;
-  margin: 0 auto;
-  line-height: 2em;
-}
-
-.projectGroup {
-  padding: 10px;
-  max-height: 75vh;
-  overflow-y: auto;
-}
-
-.projectTop {
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  max-width: 70%;
-  max-height: 70%;
-  margin: 0 auto;
-}
-
-.projectBottom {
-  max-height:40%;
-}
-
-.skillsGroup {
-  padding: 10px;
-  max-height: 75vh;
-  overflow-y: auto;
-}
-
-.svgBox {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  max-width: 30vw;
-  margin: 0 auto; 
-  padding-bottom: 20px;
-}
-
-.skillsTop img {
-  border: 1px solid black;
-  margin: 0 auto;
-}
-
-.projectTop img {
-  border: 1px solid black;
-  width: 75%;
-  height: auto;
-  -webkit-box-shadow: 3px 4px 5px -1px rgba(0,0,0,0.75);
-  -moz-box-shadow: 3px 4px 5px -1px rgba(0,0,0,0.75);
-  box-shadow: 3px 4px 5px -1px rgba(0,0,0,0.75);
-}
-
-.svgIcon {
-  margin: 0 auto;
-  width: 50px;
-  height: auto;
-}
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+  /* 2. GLOBAL STYLES - NAVIGATION */
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
 
 .navLeftTextThirds {
   margin: 0 auto;
@@ -118,10 +64,109 @@ body {
   cursor:pointer;
 }
 
-html, body {
-  width: 100%;
-  height: 100%;
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+  /* 3. GLOBAL STYLES - IMAGES */
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+.svgBox {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  max-width: 30vw;
+  margin: 0 auto; 
+  padding-bottom: 20px;
 }
+
+.svgIcon {
+  margin: 0 auto;
+  width: 50px;
+  height: auto;
+}
+
+.projectTop img {
+  border: 1px solid black;
+  width: 75%;
+  height: auto;
+  -webkit-box-shadow: 3px 4px 5px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 4px 5px -1px rgba(0,0,0,0.75);
+  box-shadow: 3px 4px 5px -1px rgba(0,0,0,0.75);
+}
+
+.skillsTop img {
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+  /* 4. GLOBAL STYLES - TEXT AND HEADERS */
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+.slideHeader {
+  font-weight: 700;
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.bodyText {
+  font-weight: 300;
+  max-width:70%;
+  text-align: center;
+  margin: 0 auto;
+  line-height: 2em;
+}
+
+hr {
+  width: 25vw;
+  border: none;
+  height: 1px;
+  background-color: black;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: darkgrey;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.fa {
+  color: white;
+  font-size: 66px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  margin-left: -21px;
+  margin-top: 10px;
+}
+
+.scrollText {
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.lineSpan {
+  display:inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+  /* 5. SLIDES - GENERAL */
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
 
 #slides-container {
   width: 100%;
@@ -132,9 +177,9 @@ html, body {
 #slides {
   width: 200%;
   height: 200%;
-  position: fixed;  //Delete this?
-  top: 0px;         //Delete this? 
-  left: 0px;        //Delete this?
+  position: fixed; 
+  top: 0px;         
+  left: 0px;        
 }
 
 .slide {
@@ -190,96 +235,14 @@ html, body {
   z-index: 1000;
 }
 
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+  /* 6. SLIDE - HOME */
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
 #home {
   background-color: rgba(230, 0, 0, 0.5);
   background-size: cover;
-}
-
-#about {
-  background-color: rgba(230, 0, 0, 0.5);
-  background-size: cover;
-  /*transform position - bottom left (0,100) */
-  -webkit-transform: translate(0,100%);
-  -ms-transform: translate(0,100%);
-  transform: translate(0,100%);
-}
-
-#skills {
-  -webkit-transform: translate(100%,100%);
-  -ms-transform: translate(100%,100%);
-  transform: translate(100%,100%);
-  z-index: 1001;
-}
-
-#projects {
-  -webkit-transform: translate(100%,0%);
-  -ms-transform: translate(100%,0%);
-  transform: translate(100%,0%);
-  z-index: 1000;
-}
-
-#connect {
-  background-color: rgba(255, 10, 0, 0.5);    
-  background-size: cover;
-  /*transform position - top right (100, 0) */
-  -webkit-transform: translate(200%,0%);
-  -ms-transform: translate(200%,0%);
-  transform: translate(200%,0%);
-}
-
-#goodbye {
-  background-color: rgba(42, 10, 20, 0.5);    
-  background-size: cover;
-  /*transform position - top right (100, 0) */
-  -webkit-transform: translate(200%,100%);
-  -ms-transform: translate(200%,100%);
-  transform: translate(200%,100%);
-}
-
-.caption {
-  position: absolute;
-  /*position : bottom right of slide*/
-  bottom: 5%;
-  right: 5%;
-  text-align: right;
-  color: #fff;
-}
-
-#helper {
-  position:absolute;
-  left:0;
-  top: 0;
-  height: 400%;
-  width: 20px;
-}
-
-.marker {
-  height: 25%;
-  width: 100%;
-}
-
-.one {
-  background-color: red;
-}
-
-.two {
-  background-color: green;
-}
-
-.three {
-  background-color: blue;
-}
-
-.four {
-  background-color: yellow;
-}
-
-.five {
-  background-color: orange;
-}
-
-.six {
-  background-color: black;
 }
 
 .homeBody {
@@ -294,8 +257,31 @@ html, body {
   width: 100vw;
 }
 
-.aboutNav {
-// empty for now
+.myName {
+  font-weight: 700;
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.myTitle {
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+  /* 7. ABOUT */
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+#about {
+  background-color: rgba(230, 0, 0, 0.5);
+  background-size: cover;
+  -webkit-transform: translate(0,100%);
+  -ms-transform: translate(0,100%);
+  transform: translate(0,100%);
 }
 
 .aboutBody {
@@ -313,6 +299,32 @@ html, body {
   overflow-y: auto;
 }
 
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+  /* 8. SLIDE - SKILLS */
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+#skills {
+  -webkit-transform: translate(100%,100%);
+  -ms-transform: translate(100%,100%);
+  transform: translate(100%,100%);
+  z-index: 1001;
+}
+
+.skillsBody {
+  width: 75vw;
+  height: 100vh;
+  position: fixed;
+  right: 0px;
+  background-color: rgba(0, 153, 153, 0.5);  
+}
+
+.skillsGroup {
+  padding: 10px;
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
 .skillsNav {
   position: fixed;
   left: 0px;
@@ -322,12 +334,42 @@ html, body {
   border-bottom: none;
 }
 
-.skillsBody {
-  width: 75vw;
-  height: 100vh;
-  position: fixed;
-  right: 0px;
-  background-color: rgba(0, 153, 153, 0.5);  
+.navLeft {
+  border: solid 1px black;                       
+  border-bottom: none;
+  height: 33.33333vh;
+  cursor:pointer;
+}
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+  /* 9. SLIDE - PROJECTS */
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+#projects {
+  -webkit-transform: translate(100%,0%);
+  -ms-transform: translate(100%,0%);
+  transform: translate(100%,0%);
+  z-index: 1000;
+}
+
+.projectGroup {
+  padding: 10px;
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+.projectTop {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  max-width: 70%;
+  max-height: 70%;
+  margin: 0 auto;
+}
+
+.projectBottom {
+  max-height:40%;
 }
 
 .projectsNav {
@@ -346,6 +388,19 @@ html, body {
   right: 0px;
 }
 
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+  /* 10. SLIDE - CONNECT */
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+#connect {
+  background-color: rgba(255, 10, 0, 0.5);    
+  background-size: cover;
+  -webkit-transform: translate(200%,0%);
+  -ms-transform: translate(200%,0%);
+  transform: translate(200%,0%);
+}
+
 .connectNav {
   position: fixed;
   top: 0px;
@@ -360,8 +415,17 @@ html, body {
   top: 25vh;
 }
 
-.goodbyeNav {
-  // empty for now
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+  /* 11. SLIDE - GOODYBE */
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+#goodbye {
+  background-color: rgba(42, 10, 20, 0.5);    
+  background-size: cover;
+  -webkit-transform: translate(200%,100%);
+  -ms-transform: translate(200%,100%);
+  transform: translate(200%,100%);
 }
 
 .goodbyeBody {
@@ -375,77 +439,11 @@ html, body {
 }
 
 
-.navLeftProjects {
-  height: 25vh;
-  cursor:pointer;
-}
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+  /* 12. ANIMATION */
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
 
-.navTop {
-  border: solid 1px black;                       
-  margin: 0 auto; 
-  display: inline-block;
-  width: 33vw;
-  height: 25vh;
-  cursor:pointer;
-}
-
-hr {
-  width: 25vw;
-  border: none;
-  height: 1px;
-  background-color: black;
-  color: black;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-a:hover {
-  text-decoration: none;
-  color: darkgrey;
-}
-
-.bold {
-  font-weight: bold;
-}
-
-.fa {
-  color: white;
-  font-size: 66px;
-  position: fixed;
-  top: 0;
-  left: 50%;
-  margin-left: -21px;
-  margin-top: 10px;
-}
-
-.scrollText {
-  color: white;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-@media (max-width: 800px) {
-  .navTop {
-    width: 32vw;
-  }
-}
-
-.navLeft {
-  border: solid 1px black;                       
-  border-bottom: none;
-  height: 33.33333vh;
-  cursor:pointer;
-}
-
-.lineSpan {
-  display:inline-block;
-  vertical-align: middle;
-  line-height: normal;
-}
+  /* Pulse animation for down chevrons on home slide */
 
 @-webkit-keyframes pulse {
   from {
@@ -484,7 +482,53 @@ a:hover {
 .pulse {
   -webkit-animation-name: pulse;
   animation-name: pulse;
-      animation-duration: 1s;
-    animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
 }
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+  /* 13. HELPER STYLES (FOR SKROLLR HELPER - COMMENTED OUT OF HTML ATM)*/
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+#helper {
+  position:absolute;
+  left:0;
+  top: 0;
+  height: 400%;
+  width: 20px;
+}
+
+.marker {
+  height: 25%;
+  width: 100%;
+}
+
+.one {
+  background-color: red;
+}
+
+.two {
+  background-color: green;
+}
+
+.three {
+  background-color: blue;
+}
+
+.four {
+  background-color: yellow;
+}
+
+.five {
+  background-color: orange;
+}
+
+.six {
+  background-color: black;
+}
+
+
+
 
