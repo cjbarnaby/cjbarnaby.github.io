@@ -296,7 +296,7 @@ a:hover {
   height: 50vh;
   position: fixed;
   bottom: 0px;
-  overflow-y: auto;
+  /*overflow-y: auto;*/
 }
 
 
@@ -322,7 +322,7 @@ a:hover {
 .skillsGroup {
   padding: 10px;
   max-height: 75vh;
-  overflow-y: auto;
+  /*overflow-y: auto;*/
 }
 
 .skillsNav {
@@ -356,7 +356,7 @@ a:hover {
 .projectGroup {
   padding: 10px;
   max-height: 75vh;
-  overflow-y: auto;
+  /*overflow-y: auto;*/
 }
 
 .projectTop {
