@@ -2,49 +2,45 @@ $(document).ready(function() {
 
   skrollr.init();
 
-  // Bones of code to snap to slides. Works, but performance is bad and needs animation/easing.
+// Code to snap scroll to slides. 
 
-  // var vH;
+  var vH;
+  var oldTime = performance.now();
 
-  // var getvH = function() {
-  //   vH = $(window).height();
-  //   return vH;
-  // }
+  var getvH = function() {
+    vH = $(window).height();
+  }
 
-  // $(document).scroll(setInterval(function() {
+  var checkScroll = setInterval(function() {
+    var newTime = performance.now();
+    var topAbout = vH;
+    var topSkills = vH * 2;
+    var topProjects = vH * 3;
+    var topConnect = vH * 4;
+    var topGoodbye = vH * 5;
 
-  //   getvH();
+    if ((newTime - oldTime) > 700) {
+      getvH();  //Call function repeatedly to allow for window resize, console open, etc)
+      if (($(document).scrollTop() > (0.6 * vH)) && $(document).scrollTop() < (1.2 * vH)) {
+        $("html, body").animate({scrollTop:topAbout}, 500, "swing", function() {
+          oldTime = performance.now()});
+      } else if (($(document).scrollTop() > (1.6 * vH)) && $(document).scrollTop() < (2.2 * vH)) {
+        $("html, body").animate({scrollTop:topSkills}, 500, "swing", function() {
+          oldTime = performance.now()});
+      } else if (($(document).scrollTop() > (2.6 * vH)) && $(document).scrollTop() < (3.2 * vH)) {
+        $("html, body").animate({scrollTop:topProjects}, 500, "swing", function() {
+          oldTime = performance.now()});
+      } else if (($(document).scrollTop() > (3.6 * vH)) && $(document).scrollTop() < (4.2 * vH)) {
+        $("html, body").animate({scrollTop:topConnect}, 500, "swing", function() {
+          oldTime = performance.now()});
+      } else if ($(document).scrollTop() > (4.6 * vH)) {
+        $("html, body").animate({scrollTop:topGoodbye}, 500, "swing", function() {
+          oldTime = performance.now()});
+      }
+    }
+  }, 300);
 
-  //   var topAbout = vH;
-  //   var topSkills = vH * 2;
-  //   var topProjects = vH * 3;
-  //   var topConnect = vH * 4;
-  //   var topGoodbye = vH * 5;
-
-  //   if (($(document).scrollTop() > (0.7 * vH)) && $(document).scrollTop() < (1.20 * vH)) {
-  //     $(document).scrollTop(topAbout);
-  //   } else if (($(document).scrollTop() > (1.7 * vH)) && $(document).scrollTop() < (2.20 * vH)) {
-  //     $(document).scrollTop(topSkills);
-  //   } else if (($(document).scrollTop() > (2.7 * vH)) && $(document).scrollTop() < (3.20 * vH)) {
-  //     $(document).scrollTop(topProjects);
-  //   } else if (($(document).scrollTop() > (3.7 * vH)) && $(document).scrollTop() < (4.20 * vH)) {
-  //     $(document).scrollTop(topConnect);
-  //   } else if ($(document).scrollTop() > (4.7 * vH)) {
-  //     $(document).scrollTop(topGoodbye);
-  //   }
-
-  // }, 1000));
-
-
-
-  
-  // $(document).scroll(function() {
-  //     if (($(document).scrollTop() > (0.95 * vH)) && ($(document).scrollTop() < (1 * vH))) {
-  //       console.log("Yes");
-  //       $(document).scrollTop(2* vH);
-  //     }
-  // });
-
+// Show/hide projects and skills (hidden on document ready)
 
   $(".lieTracker").hide();
   $(".gas").hide();
@@ -118,11 +114,4 @@ $(document).ready(function() {
     $(".design").delay(200).fadeIn(200,function() {
     });
   })
-
-
-  // $(window).resize(function() {
-  //   getVH();
-  // });
-  // getVH();
-
 })
