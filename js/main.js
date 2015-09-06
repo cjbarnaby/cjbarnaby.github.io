@@ -19,8 +19,10 @@ $(document).ready(function() {
     var topConnect = vH * 4;
     var topGoodbye = vH * 5;
 
-    if ((newTime - oldTime) > 700) {
-      getvH();  //Call function repeatedly to allow for window resize, console open, etc)
+    if ((newTime - oldTime) > 800) {
+
+      getvH();  //Call getvH repeatedly to allow for window resize, console open, etc. Document scroll and window resize slow things down too much. Maybe just get vH outside this function and write a seperate function for document resize (see if getVH takes longer than document resize).
+
       if (($(document).scrollTop() > (0.6 * vH)) && $(document).scrollTop() < (1.2 * vH)) {
         $("html, body").animate({scrollTop:topAbout}, 500, "swing", function() {
           oldTime = performance.now()});
@@ -40,7 +42,7 @@ $(document).ready(function() {
     }
   }, 300);
 
-// Show/hide projects and skills (hidden on document ready)
+// Hide projects and skills on document ready
 
   $(".lieTracker").hide();
   $(".gas").hide();
@@ -51,6 +53,7 @@ $(document).ready(function() {
   $(".productManagement").hide();
   $(".design").hide();
 
+// Show/hide skills and projects on click 
 
   $(".projectLie").on("click", function() {
     $(this).siblings().css({"background-color": ""});
