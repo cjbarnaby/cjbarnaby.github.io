@@ -84,6 +84,16 @@ html, body {
   height: auto;
 }
 
+
+.contactIcon {
+  transition: 0.3s;
+}
+.contactIcon:hover {
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+}
+
 .connectBody .svgIcon {
   margin-left: 20px;
 }
