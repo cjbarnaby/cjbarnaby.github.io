@@ -2,8 +2,9 @@ var faces;
 var isDragging = false;
 var mouseDown = false;
 var timerId;
-// THREEJS
+var viewPort;
 
+// THREEJS
 var app = app || {};
 var isDragging = false;
 var previousMousePosition = {
@@ -259,7 +260,7 @@ app.addListeners = function() {
       intersects = null;
     }
   };
-  document.addEventListener( 'mouseup', checkCollision );
+  viewPort.addEventListener( 'mouseup', checkCollision );
 
 
   app.renderer.domElement.addEventListener("mousedown", function(e) {
@@ -311,7 +312,7 @@ app.addListeners = function() {
 
 
 app.init = function() {
-
+  viewPort = document.getElementById("viewport");
   app.width = window.innerWidth;
   app.height = window.innerHeight;
 
@@ -327,7 +328,7 @@ app.init = function() {
   // app.addOrbitControls();
   var cubeVector = new THREE.Vector3(app.cube.position.x, app.cube.position.y, app.cube.position.z);
   app.camera.lookAt(cubeVector);
-  document.getElementById("viewport").appendChild( app.renderer.domElement );
+  viewPort.appendChild( app.renderer.domElement );
   app.animate();
   app.addListeners();
 };
