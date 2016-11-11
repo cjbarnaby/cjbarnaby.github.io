@@ -402,14 +402,14 @@ var showText = function(name) {
       speed: 20,
       lifeLife: false,
       autoStart: false,
-      strings: ['<a href="http://www.github.com/cjbarnaby">cjbarnaby</a>']
+      strings: ['<a href="http://www.github.com/cjbarnaby" target="_blank">cjbarnaby</a>']
     });
   } else if (name === "LinkedIn") {
     hud_text.typeIt({
       speed: 20,
       lifeLife: false,
       autoStart: false,
-      strings: ['<a href="https://au.linkedin.com/in/cjbarnaby">cjbarnaby</a>']
+      strings: ['<a href="https://au.linkedin.com/in/cjbarnaby" target="_blank">cjbarnaby</a>']
     });
   }
 };
