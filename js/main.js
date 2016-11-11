@@ -3,8 +3,6 @@ var isDragging = false;
 var mouseDown = false;
 var timerId;
 var viewPort;
-
-// THREEJS
 var app = app || {};
 var isDragging = false;
 var previousMousePosition = {
@@ -122,7 +120,6 @@ app.addCube = function() {
   faces[10].name = "LinkedIn";
   faces[11].name = "LinkedIn";
 
-
   app.cubeBox.position.y = 100;
   app.cubeBox.rotation.x = 0.5;
   app.cubeBox.rotation.y = -0.8;
@@ -227,8 +224,6 @@ app.mergeMeshes = function(meshes) {
     meshes[i].updateMatrix();
     combined.merge(meshes[i].geometry, meshes[i].matrix);
   }
-  console.log(combined);
-
   return combined;
 };
 
@@ -261,12 +256,24 @@ app.addListeners = function() {
     }
   };
   viewPort.addEventListener( 'mouseup', checkCollision );
-
+  viewPort.addEventListener( 'touchend', checkCollision );
 
   app.renderer.domElement.addEventListener("mousedown", function(e) {
     mouseDown = true;
   });
+
+  app.renderer.domElement.addEventListener("touchdown", function(e) {
+    mouseDown = true;
+  });
+
+  app.renderer.domElement.addEventListener("touchmove", function(e) {
+    dragger(e);
+  });
   app.renderer.domElement.addEventListener("mousemove", function(e) {
+    dragger(e);
+  });
+
+  var dragger = function(e) {
     if (mouseDown) {
       isDragging = true;
 
@@ -291,6 +298,10 @@ app.addListeners = function() {
       x: e.offsetX,
       y: e.offsetY
     };
+  };
+  app.renderer.domElement.addEventListener("touchend", function(e) {
+    isDragging = false;
+    mouseDown = false;
   });
   app.renderer.domElement.addEventListener("mouseup", function(e) {
     isDragging = false;
