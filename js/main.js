@@ -12,6 +12,14 @@ var previousMousePosition = {
 var hud_heading;
 var hud_text;
 var hud;
+var cameraDistance;
+
+var deviceWidth = window.innerWidth;
+if (deviceWidth < 600) {
+  cameraDistance = 600;
+} else {
+  cameraDistance = 300;
+}
 
 app.addScene = function() {
   app.scene = new THREE.Scene();
@@ -26,7 +34,7 @@ app.addHelpers = function() {
 
 app.addCamera = function() {
   app.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 5000);
-  app.camera.position.z = 300;
+  app.camera.position.z = cameraDistance;
   app.camera.position.y = 40;
   app.camera.position.x = 0;
   app.scene.add( app.camera );
@@ -236,7 +244,8 @@ app.colorGeometry = function(geometry, color) {
 
 app.addListeners = function() {
   var mouse = {};
-  var checkCollision = function () {
+  var checkCollision = function (e) {
+    console.log("touch end");
     mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
     mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
 
@@ -255,25 +264,37 @@ app.addListeners = function() {
       intersects = null;
     }
   };
-  viewPort.addEventListener( 'mouseup', checkCollision );
-  viewPort.addEventListener( 'touchend', checkCollision );
+  $(viewPort).on("mouseup touchend", checkCollision );
+  // viewPort.addEventListener( 'mouseup', checkCollision );
+  // viewPort.addEventListener( 'touchend', checkCollision );
 
-  app.renderer.domElement.addEventListener("mousedown", function(e) {
+  $(app.renderer.domElement).on("touchstart mousedown", function(e) {
+    e.stopPropagation();
+    e.stopImmediatePropagation();
     mouseDown = true;
   });
+  // app.renderer.domElement.addEventListener("touchstart", function(e) {
+  //   e.stopPropagation();
+  //   e.stopImmediatePropagation();
+  //   console.log("touchdown");
+  //   mouseDown = true;
+  // });
 
-  app.renderer.domElement.addEventListener("touchdown", function(e) {
-    mouseDown = true;
-  });
-
-  app.renderer.domElement.addEventListener("touchmove", function(e) {
+  $(app.renderer.domElement).on("mousemove touchmove", function(e) {
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    console.log("touchmove");
     dragger(e);
   });
-  app.renderer.domElement.addEventListener("mousemove", function(e) {
-    dragger(e);
-  });
+  // app.renderer.domElement.addEventListener("mousemove", function(e) {
+  //   e.stopPropagation();
+  //   e.stopImmediatePropagation();
+  //   dragger(e);
+  // });
 
   var dragger = function(e) {
+    e.stopPropagation();
+    e.stopImmediatePropagation();
     if (mouseDown) {
       isDragging = true;
 
@@ -299,14 +320,14 @@ app.addListeners = function() {
       y: e.offsetY
     };
   };
-  app.renderer.domElement.addEventListener("touchend", function(e) {
+  $(app.renderer.domElement).on("touchend mouseup", function(e) {
     isDragging = false;
     mouseDown = false;
   });
-  app.renderer.domElement.addEventListener("mouseup", function(e) {
-    isDragging = false;
-    mouseDown = false;
-  });
+  // app.renderer.domElement.addEventListener("mouseup", function(e) {
+  //   isDragging = false;
+  //   mouseDown = false;
+  // });
 
   window.addEventListener("resize", function () {
     app.width = window.innerWidth;
@@ -319,8 +340,6 @@ app.addListeners = function() {
     app.renderer.render( app.scene, app.camera );
   });
 };
-
-
 
 app.init = function() {
   viewPort = document.getElementById("viewport");
@@ -344,19 +363,16 @@ app.init = function() {
   app.addListeners();
 };
 
-
-// HEADS UP display
-
 $(document).ready(function() {
   app.init();
   hud = $(".hud");
   hud_heading = $(".hud_heading");
   hud_text = $(".hud_text");
   hud.on("click", function() {
-    window.setTimeout(function() {
-      $(".hud").fadeOut();
-    }, 100);
-    // $(".hud").fadeOut();
+    $(".hud").fadeOut();
+    // window.setTimeout(function() {
+    //   $(".hud").fadeOut();
+    // }, 100);
   });
 
 });
@@ -374,7 +390,6 @@ var showText = function(name) {
     var $icon_wrapper = $("<div></div>");
     $icon_wrapper.addClass("icon_wrapper");
     var devIcons = [
-
       $('<span class="devicons devicons-github_badge">'),
       $('<span class="devicons devicons-git">'),
       $('<span class="devicons devicons-html5">'),
@@ -390,7 +405,9 @@ var showText = function(name) {
       $('<span class="devicons devicons-illustrator">'),
       $('<span class="devicons devicons-backbone">'),
     ];
+
     hud_text.append($icon_wrapper);
+
     for (var i = 0; i < devIcons.length; i++) {
       $icon_wrapper.append(devIcons[i]);
     }
@@ -436,3 +453,6 @@ var showHUD = function(name) {
   });
   showText(name);
 };
+$(function() {
+    FastClick.attach(document.body);
+});
