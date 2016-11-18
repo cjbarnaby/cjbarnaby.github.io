@@ -57,6 +57,14 @@ a {
   max-width: 50%;
 }
 
+.hide {
+  position: absolute;
+  z-index: -1;
+  font-size: 1px;
+  color: black;
+  background-color: black;
+}
+
 @media (max-width: 600px) {
   .hud {
     width: 100vw;

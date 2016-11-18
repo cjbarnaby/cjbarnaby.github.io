@@ -453,6 +453,3 @@ var showHUD = function(name) {
   });
   showText(name);
 };
-$(function() {
-    FastClick.attach(document.body);
-});
