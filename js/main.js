@@ -1,26 +1,33 @@
+// Namespace
+var app = app || {};
+
+// Global geometries
 var faces;
+
+// Events
 var isDragging = false;
 var mouseDown = false;
-var timerId;
-var viewPort;
-var app = app || {};
-var isDragging = false;
 var previousMousePosition = {
   x: 0,
   y: 0
 };
+
+// DOM
+var viewPort;
+var hud;
 var hud_heading;
 var hud_text;
-var hud;
-var cameraDistance;
-
 var deviceWidth = window.innerWidth;
+
+// Camera distance from origin on z-axis for small devices
+var cameraDistance;
 if (deviceWidth < 600) {
   cameraDistance = 600;
 } else {
   cameraDistance = 300;
 }
 
+// App methods
 app.addScene = function() {
   app.scene = new THREE.Scene();
 };
@@ -47,7 +54,6 @@ app.addRenderer = function() {
   app.renderer.shadowMap.enabled = true;
   app.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   app.renderer.setClearColor( 0x000000, 1 );
-
 };
 
 app.addOrbitControls = function() {
@@ -86,7 +92,6 @@ app.animate = function() {
   if ( app.groupMesh ) {
     app.groupMesh.rotation.y += 0.005;
     app.cubeBox.rotation.y += 0.005;
-
   }
   app.renderer.render( app.scene, app.camera );
   requestAnimationFrame( app.animate );
@@ -390,20 +395,20 @@ var showText = function(name) {
     var $icon_wrapper = $("<div></div>");
     $icon_wrapper.addClass("icon_wrapper");
     var devIcons = [
-      $('<span class="devicons devicons-github_badge">'),
-      $('<span class="devicons devicons-git">'),
       $('<span class="devicons devicons-html5">'),
       $('<span class="devicons devicons-css3">'),
       $('<span class="devicons devicons-javascript_badge">'),
-      $('<span class="devicons devicons-ruby">'),
-      $('<span class="devicons devicons-ruby_on_rails">'),
-      $('<span class="devicons devicons-sass">'),
-      $('<span class="devicons devicons-bootstrap">'),
+      $('<span class="devicons devicons-backbone">'),
       $('<span class="devicons devicons-react">'),
       $('<span class="devicons devicons-nodejs_small">'),
+      $('<span class="devicons devicons-ruby">'),
+      $('<span class="devicons devicons-ruby_on_rails">'),
+      $('<span class="devicons devicons-github_badge">'),
+      $('<span class="devicons devicons-git">'),
+      $('<span class="devicons devicons-sass">'),
+      $('<span class="devicons devicons-bootstrap">'),
       $('<span class="devicons devicons-photoshop">'),
       $('<span class="devicons devicons-illustrator">'),
-      $('<span class="devicons devicons-backbone">'),
     ];
 
     hud_text.append($icon_wrapper);
